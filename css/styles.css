@@ -1,0 +1,148 @@
+
+/**
+ * ARENA NLD 24HS
+ * Estilos complementarios a Tailwind CSS.
+ * Paleta: negro, amarillo y grises.
+ */
+
+/* Evita desbordamientos horizontales en celulares. */
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", system-ui, sans-serif;
+  background: #000;
+  color: #D1D5DB;
+}
+
+/* Tipografía de títulos. */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: "League Gothic", Impact, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+/* Evita que el encabezado fijo tape los títulos al navegar. */
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+/* Botones principales. */
+.btn-primary {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -8px rgba(246, 193, 3, 0.45);
+  background-color: #FFD23A;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Carrusel de instalaciones. */
+.carousel-track {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  scroll-snap-align: start;
+}
+
+.carousel-slide img {
+  transition: transform 0.6s ease;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.04);
+}
+
+/* Indicadores del carrusel. */
+.dot {
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.dot[aria-current="true"] {
+  width: 2rem;
+  background-color: #F6C103;
+}
+
+/* Mapa: se integra visualmente con el diseño oscuro. */
+.map-frame {
+  filter: grayscale(1) invert(0.92) contrast(0.9);
+}
+
+.map-frame:hover {
+  filter: none;
+}
+
+/* Indicador visible al navegar con teclado. */
+:focus-visible {
+  outline: 3px solid #F6C103;
+  outline-offset: 3px;
+}
+
+/* Respeta las áreas seguras de celulares modernos. */
+.safe-bottom {
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  right: max(1.25rem, env(safe-area-inset-right));
+}
+
+/* Acordeones de preguntas frecuentes. */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:focus-visible {
+  border-radius: 0.25rem;
+}
+
+/* Campos del formulario de contacto. */
+#lead-form input,
+#lead-form select {
+  min-height: 48px;
+}
+
+#lead-form input:focus,
+#lead-form select:focus {
+  border-color: #F6C103;
+}
+
+/* Evita que las animaciones molesten a usuarios que las desactivan. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
